@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue Table</title>
+    </head>
+    <body>
+        <table id="vueTable">
+		  <thead>
+		    <tr>
+		      <th v-for="col in columns">{{col}}</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr v-for="row in rows">
+		      <td v-for="col in columns">{{row[col]}}</td>
+		    </tr>
+		  </tbody>
+		</table>
+
+		<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="vue-table.js"></script>
+    </body>
+</html>
