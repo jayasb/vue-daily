@@ -1,8 +1,8 @@
 <template>
   <div>
     <b-table
-      :items="myProvider"
-      :fields="fields"
+            :items="myProvider"
+            :fields="fields"
     ></b-table>
   </div>
 </template>
