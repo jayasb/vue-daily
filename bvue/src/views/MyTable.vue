@@ -5,7 +5,14 @@
                 select-mode="multi"
                 :items="myProvider"
                 :fields="fields"
-                @row-selected="onRowSelected"></b-table>
+                @row-selected="onRowSelected">
+
+            <!-- A custom column -->
+            <template v-slot:cell(name)="data">
+                {{ data.item.last_name }} {{ data.item.first_name }}
+            </template>
+
+        </b-table>
     </div>
 </template>
 
@@ -21,6 +28,7 @@
                     {key: 'id', sortable: true},
                     {key: 'last_name', sortable: true},
                     {key: 'first_name', sortable: true},
+                    {key: 'name', label: 'Full Name', sortable: true },
                     {key: 'email', sortable: true}
                 ]
             }
