@@ -1,5 +1,3 @@
-Day 12
-
 Today, we are going to add virtual columns (or computed columns)
 
 copy MyTable.vue to the views folder

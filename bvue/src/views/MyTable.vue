@@ -1,6 +1,14 @@
 <template>
     <div>
+        <b-button-toolbar key-nav>
+            <b-button-group class="mx-1">
+                <b-button @click="refreshGrid">Refresh</b-button>
+            </b-button-group>
+        </b-button-toolbar>
+
         <b-table
+                class="mt-3"
+                bordered
                 selectable
                 select-mode="multi"
                 :items="myProvider"
@@ -12,6 +20,12 @@
                 {{ data.item.last_name }} {{ data.item.first_name }}
             </template>
 
+            <template v-slot:table-busy>
+                <div class="text-center text-danger my-2">
+                    <b-spinner class="align-middle"></b-spinner>
+                    <strong>Loading...</strong>
+                </div>
+            </template>
         </b-table>
     </div>
 </template>
@@ -47,6 +61,10 @@
             },
             onRowSelected(items) {
                 console.log(items)
+            },
+            refreshGrid() {
+                console.log('invoked refreshGrid');
+                this.myProvider();
             }
         }
     }
